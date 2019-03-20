@@ -1,0 +1,16 @@
+{
+  //用户分享
+  "user": {
+    "link": "http://www.baidu.com",
+    "title": "【%s】【%s】我是%s，我现在要去【%s】",
+    "desc": "需要帮忙的同学请点击，我已帮助同学们%d次，你就是我的下一次哦！",
+    "imgUrl": ""
+  },
+  //楼长分享
+  "building": {
+    "link": "",
+    "title": "",
+    "desc": "",
+    "imgUrl": ""
+  }
+}

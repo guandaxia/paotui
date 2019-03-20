@@ -1,0 +1,365 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+import store from '../store/store'
+import * as types from '../store/types'
+import utils from '../lib/utils'
+
+import Index from '@/pages/Index'
+import Home from '@/pages/Home'
+import Login from '@/pages/Login'
+import SearchCity from '@/pages/SearchCity'
+import SearchSchool from '@/pages/SearchSchool'
+import CheckMobile from '@/pages/CheckMobile'
+import PerfectInfo from '@/pages/PerfectInfo'
+import ForgetPassword from '@/pages/ForgetPassword'
+
+import TaskList from '@/pages/TaskList'
+import OrderList from '@/pages/OrderList'
+
+import JobDetail from '@/pages/JobDetail'
+
+import OrderDetail from '@/pages/OrderDetail'
+import GrapOrderSuccess from '@/pages/GrapOrderSuccess'
+
+import Setting from '@/pages/Setting'
+import Certification from '@/pages/Certification'
+import UnderReview from '@/pages/UnderReview'
+import Aboutus from '@/pages/Aboutus'
+import PracticeIntroduction from '@/pages/PracticeIntroduction'
+import Feedback from '@/pages/Feedback'
+import ChangePassword from '@/pages/ChangePassword'
+import EditUserInfo from '@/pages/user/EditUserInfo'
+import EditUserName from '@/pages/user/EditUserName'
+import EditMobile from '@/pages/user/EditMobile'
+
+import Account from '@/pages/Account'
+import AccountDetails from '@/pages/AccountDetails'
+
+import ReleaseExpress from '@/pages/release/Express'
+import ReleaseGoods from '@/pages/release/Goods'
+import ReleaseBuy from '@/pages/release/Buy'
+import ReleaseJob from '@/pages/release/Job'
+
+import Punishment from '@/pages/Punishment'
+import Reward from '@/pages/Reward'
+import Coupon from '@/pages/Coupon'
+import BuyCoupon from '@/pages/BuyCoupon'
+
+Vue.use(Router)
+
+const routes = [
+  {
+    path: '/',
+    name: 'Index',
+    component: Index,
+    meta: {
+      requireAuth: true
+      // keepAlive: true
+    }
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+    meta: {
+      keepAlive: true
+    }
+  },
+  {
+    path: '/searchCity',
+    name: 'SearchCity',
+    component: SearchCity,
+    meta: {
+      keepAlive: true
+    }
+  },
+  {
+    path: '/searchSchool',
+    name: 'SearchSchool',
+    component: SearchSchool,
+    meta: {
+      keepAlive: true
+    }
+  },
+  {
+    path: '/checkMobile',
+    name: 'CheckMobile',
+    component: CheckMobile,
+    meta: {
+      keepAlive: false
+    }
+  },
+  {
+    path: '/perfectInfo',
+    name: 'PerfectInfo',
+    component: PerfectInfo,
+    meta: {
+      keepAlive: true
+    }
+  },
+  {
+    path: '/forgetPassword',
+    name: 'ForgetPassword',
+    component: ForgetPassword,
+    meta: {
+      keepAlive: true
+    }
+  },
+  {
+    path: '/setting',
+    name: 'Setting',
+    component: Setting,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/aboutus',
+    name: 'Aboutus',
+    component: Aboutus,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/feedback',
+    name: 'Feedback',
+    component: Feedback,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/changePassword',
+    name: 'ChangePassword',
+    component: ChangePassword,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/editUserInfo',
+    name: 'EditUserInfo',
+    component: EditUserInfo,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/editUserName',
+    name: 'EditUserName',
+    component: EditUserName,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/editMobile',
+    name: 'EditMobile',
+    component: EditMobile,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/account',
+    name: 'Account',
+    component: Account,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/accountDetails',
+    name: 'AccountDetails',
+    component: AccountDetails,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/releaseExpress',
+    name: 'ReleaseExpress',
+    component: ReleaseExpress,
+    meta: {
+      requireAuth: true,
+      keepAlive: false
+    }
+  },
+  {
+    path: '/releaseGoods',
+    name: 'ReleaseGoods',
+    component: ReleaseGoods,
+    meta: {
+      requireAuth: true,
+      keepAlive: false
+    }
+  },
+  {
+    path: '/releaseBuy',
+    name: 'ReleaseBuy',
+    component: ReleaseBuy,
+    meta: {
+      requireAuth: true,
+      keepAlive: false
+    }
+  },
+  {
+    path: '/releaseJob',
+    name: 'ReleaseJob',
+    component: ReleaseJob,
+    meta: {
+      requireAuth: true,
+      keepAlive: false
+    }
+  },
+  {
+    path: '/certification',
+    name: 'Certification',
+    component: Certification,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/underReview',
+    name: 'UnderReview',
+    component: UnderReview,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/punishment',
+    name: 'Punishment',
+    component: Punishment,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/reward',
+    name: 'Reward',
+    component: Reward,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/coupon',
+    name: 'Coupon',
+    component: Coupon,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/buycoupon',
+    name: 'BuyCoupon',
+    component: BuyCoupon,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/taskList',
+    name: 'TaskList',
+    component: TaskList,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/orderList',
+    name: 'OrderList',
+    component: OrderList,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/practiceIntroduction',
+    name: 'PracticeIntroduction',
+    component: PracticeIntroduction,
+    meta: {
+      requireAuth: true,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/orderDetail',
+    name: 'OrderDetail',
+    component: OrderDetail,
+    meta: {
+      requireAuth: true
+    }
+  },
+  {
+    path: '/jobDetail',
+    name: 'JobDetail',
+    component: JobDetail,
+    meta: {
+      requireAuth: true
+    }
+  },
+  {
+    path: '/grapOrderSuccess',
+    name: 'GrapOrderSuccess',
+    component: GrapOrderSuccess,
+    meta: {
+      requireAuth: true
+    }
+  }
+]
+// 页面刷新时，重新赋值token
+if (window.localStorage.getItem('token')) {
+  store.commit(types.LOGIN, window.localStorage.getItem('token'))
+  store.commit(types.USERINFO, utils.getLocalStorage('user_info'))
+}
+
+const router = new Router({
+  routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(r => r.meta.requireAuth)) {
+    if (store.state.token) {
+      next()
+    } else {
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
+    }
+  } else {
+    next()
+  }
+})
+
+export default router
